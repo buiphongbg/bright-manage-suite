@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GiayChungNhanRouteImport } from './routes/giay-chung-nhan'
+import { Route as HopDongNguyenTacRouteImport } from './routes/hop-dong-nguyen-tac'
 import { Route as KhachHangRouteImport } from './routes/khach-hang'
 import { Route as BaoGiaIdRouteImport } from './routes/bao-gia.$id'
 import { Route as LichCongTacIndexRouteImport } from './routes/lich-cong-tac.index'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const GiayChungNhanRoute = GiayChungNhanRouteImport.update({
   id: '/giay-chung-nhan',
   path: '/giay-chung-nhan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HopDongNguyenTacRoute = HopDongNguyenTacRouteImport.update({
+  id: '/hop-dong-nguyen-tac',
+  path: '/hop-dong-nguyen-tac',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KhachHangRoute = KhachHangRouteImport.update({
@@ -62,6 +68,7 @@ const PhieuTntmIdRoute = PhieuTntmIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
+  '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
   '/khach-hang': typeof KhachHangRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
   '/lich-cong-tac/lich': typeof LichCongTacLichRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
+  '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
   '/khach-hang': typeof KhachHangRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
   '/lich-cong-tac/lich': typeof LichCongTacLichRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
+  '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
   '/khach-hang': typeof KhachHangRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
   '/lich-cong-tac/lich': typeof LichCongTacLichRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/giay-chung-nhan'
+    | '/hop-dong-nguyen-tac'
     | '/khach-hang'
     | '/bao-gia/$id'
     | '/lich-cong-tac/lich'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/giay-chung-nhan'
+    | '/hop-dong-nguyen-tac'
     | '/khach-hang'
     | '/bao-gia/$id'
     | '/lich-cong-tac/lich'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/giay-chung-nhan'
+    | '/hop-dong-nguyen-tac'
     | '/khach-hang'
     | '/bao-gia/$id'
     | '/lich-cong-tac/lich'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GiayChungNhanRoute: typeof GiayChungNhanRoute
+  HopDongNguyenTacRoute: typeof HopDongNguyenTacRoute
   KhachHangRoute: typeof KhachHangRoute
   BaoGiaIdRoute: typeof BaoGiaIdRoute
   LichCongTacLichRoute: typeof LichCongTacLichRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/giay-chung-nhan'
       fullPath: '/giay-chung-nhan'
       preLoaderRoute: typeof GiayChungNhanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hop-dong-nguyen-tac': {
+      id: '/hop-dong-nguyen-tac'
+      path: '/hop-dong-nguyen-tac'
+      fullPath: '/hop-dong-nguyen-tac'
+      preLoaderRoute: typeof HopDongNguyenTacRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/khach-hang': {
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GiayChungNhanRoute: GiayChungNhanRoute,
+  HopDongNguyenTacRoute: HopDongNguyenTacRoute,
   KhachHangRoute: KhachHangRoute,
   BaoGiaIdRoute: BaoGiaIdRoute,
   LichCongTacLichRoute: LichCongTacLichRoute,
