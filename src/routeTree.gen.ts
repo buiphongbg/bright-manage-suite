@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DangNhapRouteImport } from './routes/dang-nhap'
+import { Route as DatLaiMatKhauRouteImport } from './routes/dat-lai-mat-khau'
 import { Route as GiayChungNhanRouteImport } from './routes/giay-chung-nhan'
 import { Route as HoaDonRouteImport } from './routes/hoa-don'
 import { Route as HopDongNguyenTacRouteImport } from './routes/hop-dong-nguyen-tac'
@@ -31,6 +32,11 @@ const IndexRoute = IndexRouteImport.update({
 const DangNhapRoute = DangNhapRouteImport.update({
   id: '/dang-nhap',
   path: '/dang-nhap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatLaiMatKhauRoute = DatLaiMatKhauRouteImport.update({
+  id: '/dat-lai-mat-khau',
+  path: '/dat-lai-mat-khau',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GiayChungNhanRoute = GiayChungNhanRouteImport.update({
@@ -92,6 +98,7 @@ const PhieuTntmIdRoute = PhieuTntmIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dang-nhap': typeof DangNhapRoute
+  '/dat-lai-mat-khau': typeof DatLaiMatKhauRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
   '/hoa-don': typeof HoaDonRoute
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dang-nhap': typeof DangNhapRoute
+  '/dat-lai-mat-khau': typeof DatLaiMatKhauRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
   '/hoa-don': typeof HoaDonRoute
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dang-nhap': typeof DangNhapRoute
+  '/dat-lai-mat-khau': typeof DatLaiMatKhauRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
   '/hoa-don': typeof HoaDonRoute
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dang-nhap'
+    | '/dat-lai-mat-khau'
     | '/giay-chung-nhan'
     | '/hoa-don'
     | '/hop-dong-nguyen-tac'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/dang-nhap'
+    | '/dat-lai-mat-khau'
     | '/giay-chung-nhan'
     | '/hoa-don'
     | '/hop-dong-nguyen-tac'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dang-nhap'
+    | '/dat-lai-mat-khau'
     | '/giay-chung-nhan'
     | '/hoa-don'
     | '/hop-dong-nguyen-tac'
@@ -186,6 +198,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DangNhapRoute: typeof DangNhapRoute
+  DatLaiMatKhauRoute: typeof DatLaiMatKhauRoute
   GiayChungNhanRoute: typeof GiayChungNhanRoute
   HoaDonRoute: typeof HoaDonRoute
   HopDongNguyenTacRoute: typeof HopDongNguyenTacRoute
@@ -213,6 +226,13 @@ declare module '@tanstack/react-router' {
       path: '/dang-nhap'
       fullPath: '/dang-nhap'
       preLoaderRoute: typeof DangNhapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dat-lai-mat-khau': {
+      id: '/dat-lai-mat-khau'
+      path: '/dat-lai-mat-khau'
+      fullPath: '/dat-lai-mat-khau'
+      preLoaderRoute: typeof DatLaiMatKhauRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/giay-chung-nhan': {
@@ -298,6 +318,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DangNhapRoute: DangNhapRoute,
+  DatLaiMatKhauRoute: DatLaiMatKhauRoute,
   GiayChungNhanRoute: GiayChungNhanRoute,
   HoaDonRoute: HoaDonRoute,
   HopDongNguyenTacRoute: HopDongNguyenTacRoute,
