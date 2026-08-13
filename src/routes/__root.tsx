@@ -77,14 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Hệ thống quản lý đo lường — BG/HĐ, TNTM, GCN" },
+      {
+        name: "description",
+        content:
+          "Hệ thống quản lý báo giá, hợp đồng, phiếu tiếp nhận mẫu và giấy chứng nhận cho phòng đo lường - hiệu chuẩn - kiểm định.",
+      },
+      { property: "og:title", content: "Hệ thống quản lý đo lường" },
+      {
+        property: "og:description",
+        content: "Quản lý báo giá, hợp đồng, phiếu TNTM, giấy chứng nhận, khách hàng và lịch công tác.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
