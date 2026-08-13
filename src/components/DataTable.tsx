@@ -89,8 +89,8 @@ export function DataTable<T extends object>({
         rowKey={rowKey}
         columns={visibleColumns}
         dataSource={data}
-        rowClassName={rowClassName}
-        scroll={scrollX ? { x: scrollX } : undefined}
+        {...(rowClassName ? { rowClassName } : {})}
+        {...(scrollX ? { scroll: { x: scrollX } } : {})}
         pagination={{
           current: page,
           pageSize: size,
