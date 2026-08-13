@@ -107,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <head>
         <HeadContent />
       </head>
@@ -124,8 +124,27 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <ConfigProvider
+        locale={viVN}
+        theme={{
+          token: {
+            colorPrimary: "#0aa06f",
+            colorLink: "#1a73c8",
+            borderRadius: 3,
+            fontSize: 13,
+            fontFamily: '"Segoe UI", Roboto, Arial, Helvetica, sans-serif',
+          },
+          components: {
+            Layout: { siderBg: "#22313f", headerBg: "#f6f8f9", headerHeight: 44 },
+            Menu: { darkItemBg: "#22313f", darkItemSelectedBg: "#1a2733", darkSubMenuItemBg: "#1c2936" },
+            Table: { headerBg: "#0aa06f", headerColor: "#ffffff", cellPaddingBlockSM: 6 },
+            Button: { primaryShadow: "none" },
+          },
+        }}
+      >
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </ConfigProvider>
     </QueryClientProvider>
   );
 }
