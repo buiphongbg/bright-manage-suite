@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DangNhapRouteImport } from './routes/dang-nhap'
 import { Route as GiayChungNhanRouteImport } from './routes/giay-chung-nhan'
 import { Route as HoaDonRouteImport } from './routes/hoa-don'
 import { Route as HopDongNguyenTacRouteImport } from './routes/hop-dong-nguyen-tac'
@@ -24,6 +25,11 @@ import { Route as PhieuTntmIdRouteImport } from './routes/phieu-tntm.$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DangNhapRoute = DangNhapRouteImport.update({
+  id: '/dang-nhap',
+  path: '/dang-nhap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GiayChungNhanRoute = GiayChungNhanRouteImport.update({
@@ -79,6 +85,7 @@ const PhieuTntmIdRoute = PhieuTntmIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dang-nhap': typeof DangNhapRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
   '/hoa-don': typeof HoaDonRoute
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dang-nhap': typeof DangNhapRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
   '/hoa-don': typeof HoaDonRoute
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dang-nhap': typeof DangNhapRoute
   '/giay-chung-nhan': typeof GiayChungNhanRoute
   '/hoa-don': typeof HoaDonRoute
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/dang-nhap'
     | '/giay-chung-nhan'
     | '/hoa-don'
     | '/hop-dong-nguyen-tac'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/dang-nhap'
     | '/giay-chung-nhan'
     | '/hoa-don'
     | '/hop-dong-nguyen-tac'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/dang-nhap'
     | '/giay-chung-nhan'
     | '/hoa-don'
     | '/hop-dong-nguyen-tac'
@@ -161,6 +173,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DangNhapRoute: typeof DangNhapRoute
   GiayChungNhanRoute: typeof GiayChungNhanRoute
   HoaDonRoute: typeof HoaDonRoute
   HopDongNguyenTacRoute: typeof HopDongNguyenTacRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dang-nhap': {
+      id: '/dang-nhap'
+      path: '/dang-nhap'
+      fullPath: '/dang-nhap'
+      preLoaderRoute: typeof DangNhapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/giay-chung-nhan': {
@@ -257,6 +277,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DangNhapRoute: DangNhapRoute,
   GiayChungNhanRoute: GiayChungNhanRoute,
   HoaDonRoute: HoaDonRoute,
   HopDongNguyenTacRoute: HopDongNguyenTacRoute,
