@@ -8,6 +8,8 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { ConfigProvider } from "antd";
+import viVN from "antd/locale/vi_VN";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -77,14 +79,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Hệ thống quản lý đo lường — BG/HĐ, TNTM, GCN" },
+      {
+        name: "description",
+        content:
+          "Hệ thống quản lý báo giá, hợp đồng, phiếu tiếp nhận mẫu và giấy chứng nhận cho phòng đo lường - hiệu chuẩn - kiểm định.",
+      },
+      { property: "og:title", content: "Hệ thống quản lý đo lường" },
+      {
+        property: "og:description",
+        content: "Quản lý báo giá, hợp đồng, phiếu TNTM, giấy chứng nhận, khách hàng và lịch công tác.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -102,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <head>
         <HeadContent />
       </head>
@@ -119,8 +126,27 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <ConfigProvider
+        locale={viVN}
+        theme={{
+          token: {
+            colorPrimary: "#0aa06f",
+            colorLink: "#1a73c8",
+            borderRadius: 3,
+            fontSize: 13,
+            fontFamily: '"Segoe UI", Roboto, Arial, Helvetica, sans-serif',
+          },
+          components: {
+            Layout: { siderBg: "#22313f", headerBg: "#f6f8f9", headerHeight: 44 },
+            Menu: { darkItemBg: "#22313f", darkItemSelectedBg: "#1a2733", darkSubMenuItemBg: "#1c2936" },
+            Table: { headerBg: "#0aa06f", headerColor: "#ffffff", cellPaddingBlockSM: 6 },
+            Button: { primaryShadow: "none" },
+          },
+        }}
+      >
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </ConfigProvider>
     </QueryClientProvider>
   );
 }
