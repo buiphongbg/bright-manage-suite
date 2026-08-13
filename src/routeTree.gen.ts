@@ -16,6 +16,7 @@ import { Route as HoaDonRouteImport } from './routes/hoa-don'
 import { Route as HopDongNguyenTacRouteImport } from './routes/hop-dong-nguyen-tac'
 import { Route as KhachHangRouteImport } from './routes/khach-hang'
 import { Route as MauChuaHdRouteImport } from './routes/mau-chua-hd'
+import { Route as QuenMatKhauRouteImport } from './routes/quen-mat-khau'
 import { Route as BaoGiaIdRouteImport } from './routes/bao-gia.$id'
 import { Route as LichCongTacIndexRouteImport } from './routes/lich-cong-tac.index'
 import { Route as LichCongTacLichRouteImport } from './routes/lich-cong-tac.lich'
@@ -57,6 +58,11 @@ const MauChuaHdRoute = MauChuaHdRouteImport.update({
   path: '/mau-chua-hd',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuenMatKhauRoute = QuenMatKhauRouteImport.update({
+  id: '/quen-mat-khau',
+  path: '/quen-mat-khau',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BaoGiaIdRoute = BaoGiaIdRouteImport.update({
   id: '/bao-gia/$id',
   path: '/bao-gia/$id',
@@ -91,6 +97,7 @@ export interface FileRoutesByFullPath {
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
   '/khach-hang': typeof KhachHangRoute
   '/mau-chua-hd': typeof MauChuaHdRoute
+  '/quen-mat-khau': typeof QuenMatKhauRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
   '/lich-cong-tac/lich': typeof LichCongTacLichRoute
   '/phieu-tntm/$id': typeof PhieuTntmIdRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
   '/khach-hang': typeof KhachHangRoute
   '/mau-chua-hd': typeof MauChuaHdRoute
+  '/quen-mat-khau': typeof QuenMatKhauRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
   '/lich-cong-tac/lich': typeof LichCongTacLichRoute
   '/phieu-tntm/$id': typeof PhieuTntmIdRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/hop-dong-nguyen-tac': typeof HopDongNguyenTacRoute
   '/khach-hang': typeof KhachHangRoute
   '/mau-chua-hd': typeof MauChuaHdRoute
+  '/quen-mat-khau': typeof QuenMatKhauRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
   '/lich-cong-tac/lich': typeof LichCongTacLichRoute
   '/phieu-tntm/$id': typeof PhieuTntmIdRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
     | '/hop-dong-nguyen-tac'
     | '/khach-hang'
     | '/mau-chua-hd'
+    | '/quen-mat-khau'
     | '/bao-gia/$id'
     | '/lich-cong-tac/lich'
     | '/phieu-tntm/$id'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/hop-dong-nguyen-tac'
     | '/khach-hang'
     | '/mau-chua-hd'
+    | '/quen-mat-khau'
     | '/bao-gia/$id'
     | '/lich-cong-tac/lich'
     | '/phieu-tntm/$id'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/hop-dong-nguyen-tac'
     | '/khach-hang'
     | '/mau-chua-hd'
+    | '/quen-mat-khau'
     | '/bao-gia/$id'
     | '/lich-cong-tac/lich'
     | '/phieu-tntm/$id'
@@ -179,6 +191,7 @@ export interface RootRouteChildren {
   HopDongNguyenTacRoute: typeof HopDongNguyenTacRoute
   KhachHangRoute: typeof KhachHangRoute
   MauChuaHdRoute: typeof MauChuaHdRoute
+  QuenMatKhauRoute: typeof QuenMatKhauRoute
   BaoGiaIdRoute: typeof BaoGiaIdRoute
   LichCongTacLichRoute: typeof LichCongTacLichRoute
   PhieuTntmIdRoute: typeof PhieuTntmIdRoute
@@ -237,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MauChuaHdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quen-mat-khau': {
+      id: '/quen-mat-khau'
+      path: '/quen-mat-khau'
+      fullPath: '/quen-mat-khau'
+      preLoaderRoute: typeof QuenMatKhauRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bao-gia/$id': {
       id: '/bao-gia/$id'
       path: '/bao-gia/$id'
@@ -283,6 +303,7 @@ const rootRouteChildren: RootRouteChildren = {
   HopDongNguyenTacRoute: HopDongNguyenTacRoute,
   KhachHangRoute: KhachHangRoute,
   MauChuaHdRoute: MauChuaHdRoute,
+  QuenMatKhauRoute: QuenMatKhauRoute,
   BaoGiaIdRoute: BaoGiaIdRoute,
   LichCongTacLichRoute: LichCongTacLichRoute,
   PhieuTntmIdRoute: PhieuTntmIdRoute,
