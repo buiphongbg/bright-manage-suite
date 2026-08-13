@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BaoGiaIdRouteImport } from './routes/bao-gia.$id'
 import { Route as PhieuTntmIndexRouteImport } from './routes/phieu-tntm.index'
+import { Route as PhieuTntmIdRouteImport } from './routes/phieu-tntm.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,34 +29,43 @@ const PhieuTntmIndexRoute = PhieuTntmIndexRouteImport.update({
   path: '/phieu-tntm/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhieuTntmIdRoute = PhieuTntmIdRouteImport.update({
+  id: '/phieu-tntm/$id',
+  path: '/phieu-tntm/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
+  '/phieu-tntm/$id': typeof PhieuTntmIdRoute
   '/phieu-tntm/': typeof PhieuTntmIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
+  '/phieu-tntm/$id': typeof PhieuTntmIdRoute
   '/phieu-tntm': typeof PhieuTntmIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
+  '/phieu-tntm/$id': typeof PhieuTntmIdRoute
   '/phieu-tntm/': typeof PhieuTntmIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bao-gia/$id' | '/phieu-tntm/'
+  fullPaths: '/' | '/bao-gia/$id' | '/phieu-tntm/$id' | '/phieu-tntm/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bao-gia/$id' | '/phieu-tntm'
-  id: '__root__' | '/' | '/bao-gia/$id' | '/phieu-tntm/'
+  to: '/' | '/bao-gia/$id' | '/phieu-tntm/$id' | '/phieu-tntm'
+  id: '__root__' | '/' | '/bao-gia/$id' | '/phieu-tntm/$id' | '/phieu-tntm/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BaoGiaIdRoute: typeof BaoGiaIdRoute
+  PhieuTntmIdRoute: typeof PhieuTntmIdRoute
   PhieuTntmIndexRoute: typeof PhieuTntmIndexRoute
 }
 
@@ -82,12 +92,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PhieuTntmIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/phieu-tntm/$id': {
+      id: '/phieu-tntm/$id'
+      path: '/phieu-tntm/$id'
+      fullPath: '/phieu-tntm/$id'
+      preLoaderRoute: typeof PhieuTntmIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BaoGiaIdRoute: BaoGiaIdRoute,
+  PhieuTntmIdRoute: PhieuTntmIdRoute,
   PhieuTntmIndexRoute: PhieuTntmIndexRoute,
 }
 export const routeTree = rootRouteImport
