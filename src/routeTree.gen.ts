@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BaoGiaIdRouteImport } from './routes/bao-gia.$id'
+import { Route as PhieuTntmIndexRouteImport } from './routes/phieu-tntm.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const BaoGiaIdRoute = BaoGiaIdRouteImport.update({
   path: '/bao-gia/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhieuTntmIndexRoute = PhieuTntmIndexRouteImport.update({
+  id: '/phieu-tntm/',
+  path: '/phieu-tntm/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
+  '/phieu-tntm/': typeof PhieuTntmIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
+  '/phieu-tntm': typeof PhieuTntmIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bao-gia/$id': typeof BaoGiaIdRoute
+  '/phieu-tntm/': typeof PhieuTntmIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bao-gia/$id'
+  fullPaths: '/' | '/bao-gia/$id' | '/phieu-tntm/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bao-gia/$id'
-  id: '__root__' | '/' | '/bao-gia/$id'
+  to: '/' | '/bao-gia/$id' | '/phieu-tntm'
+  id: '__root__' | '/' | '/bao-gia/$id' | '/phieu-tntm/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BaoGiaIdRoute: typeof BaoGiaIdRoute
+  PhieuTntmIndexRoute: typeof PhieuTntmIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BaoGiaIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/phieu-tntm/': {
+      id: '/phieu-tntm/'
+      path: '/phieu-tntm'
+      fullPath: '/phieu-tntm/'
+      preLoaderRoute: typeof PhieuTntmIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BaoGiaIdRoute: BaoGiaIdRoute,
+  PhieuTntmIndexRoute: PhieuTntmIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
