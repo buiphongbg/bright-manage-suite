@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BaoGiaIdRouteImport } from './routes/bao-gia.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BaoGiaIdRoute = BaoGiaIdRouteImport.update({
+  id: '/bao-gia/$id',
+  path: '/bao-gia/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bao-gia/$id': typeof BaoGiaIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bao-gia/$id': typeof BaoGiaIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bao-gia/$id': typeof BaoGiaIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/bao-gia/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/bao-gia/$id'
+  id: '__root__' | '/' | '/bao-gia/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BaoGiaIdRoute: typeof BaoGiaIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bao-gia/$id': {
+      id: '/bao-gia/$id'
+      path: '/bao-gia/$id'
+      fullPath: '/bao-gia/$id'
+      preLoaderRoute: typeof BaoGiaIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BaoGiaIdRoute: BaoGiaIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
