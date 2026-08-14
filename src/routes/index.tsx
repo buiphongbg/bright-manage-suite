@@ -100,9 +100,12 @@ function ServicePage() {
 
   return (
     <AppShell title="Quản lý chung các BG/ HĐ, phiếu TNTM">
-      <Button type="primary" icon={<PlusOutlined />} style={{ marginBottom: 12 }}>
-        Thêm mới
-      </Button>
+      <Link to="/bao-gia/tao">
+        <Button type="primary" icon={<PlusOutlined />} style={{ marginBottom: 12 }}>
+          Thêm mới
+        </Button>
+      </Link>
+
 
       <FilterBar>
         <FilterField label="Ngày tạo:">
