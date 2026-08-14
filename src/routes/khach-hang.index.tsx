@@ -7,7 +7,7 @@ import { DataTable } from "@/components/DataTable";
 import { FilterBar, FilterField } from "@/components/FilterBar";
 import { customers, type Customer } from "@/data/mock";
 
-export const Route = createFileRoute("/khach-hang")({
+export const Route = createFileRoute("/khach-hang/")({
   head: () => ({
     meta: [
       { title: "Khách hàng — Danh mục khách hàng" },
@@ -70,7 +70,19 @@ function CustomerPage() {
         </FilterField>
       </FilterBar>
 
-      <DataTable<Customer> columns={columns} data={data} scrollX={1500} exportLabel="Kết xuất Excel" />
+      <DataTable<Customer>
+        columns={columns}
+        data={data}
+        scrollX={1500}
+        exportLabel="Kết xuất Excel"
+        toolbarLeft={
+          <Link to="/khach-hang/tao">
+            <Button type="primary" icon={<PlusOutlined />}>
+              Thêm mới
+            </Button>
+          </Link>
+        }
+      />
     </AppShell>
   );
 }
