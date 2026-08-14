@@ -185,7 +185,7 @@ function CreateQuotePage() {
   ];
 
   const total = lines.reduce((s, l) => s + lineTotal(l), 0);
-  const selected = customers.find((c) => c.tenKhachHang === khachHang);
+  const selected = customers.find((c) => c.ten === khachHang);
 
   return (
     <AppShell title="Tạo báo giá">
@@ -220,14 +220,14 @@ function CreateQuotePage() {
               style={{ width: 360 }}
               value={khachHang}
               onChange={setKhachHang}
-              options={customers.map((c) => ({ value: c.tenKhachHang, label: c.tenKhachHang }))}
+              options={customers.map((c) => ({ value: c.ten, label: c.ten }))}
             />
           </FilterField>
           <FilterField label="Người liên hệ:">
             <Input style={{ width: 180 }} />
           </FilterField>
           <FilterField label="Điện thoại:">
-            <Input style={{ width: 150 }} defaultValue={selected?.dienThoai} />
+            <Input style={{ width: 150 }} defaultValue={selected?.dt} />
           </FilterField>
           <FilterField label="Địa chỉ:">
             <Input style={{ width: 420 }} value={selected?.diaChi ?? undefined} readOnly={!!selected} />
