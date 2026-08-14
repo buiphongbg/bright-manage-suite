@@ -1,12 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Input } from "antd";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Button, Input } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import type { ColumnsType } from "antd/es/table";
 import { AppShell } from "@/components/AppShell";
 import { DataTable } from "@/components/DataTable";
 import { FilterBar, FilterField } from "@/components/FilterBar";
 import { quotes, formatVnd } from "@/data/mock";
 
-export const Route = createFileRoute("/hoa-don")({
+export const Route = createFileRoute("/hoa-don/")({
   head: () => ({
     meta: [
       { title: "Hóa đơn — Theo dõi hóa đơn dịch vụ" },
@@ -49,7 +50,18 @@ function InvoicePage() {
           <Input style={{ width: 320 }} />
         </FilterField>
       </FilterBar>
-      <DataTable<Row> columns={columns} data={rows} exportLabel="Kết xuất Excel" />
+      <DataTable<Row>
+        columns={columns}
+        data={rows}
+        exportLabel="Kết xuất Excel"
+        toolbarLeft={
+          <Link to="/hoa-don/tao">
+            <Button type="primary" icon={<PlusOutlined />}>
+              Thêm mới
+            </Button>
+          </Link>
+        }
+      />
     </AppShell>
   );
 }
