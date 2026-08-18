@@ -15,6 +15,7 @@ import {
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import imcLogo from "@/assets/imc-logo.jpg.asset.json";
 
 const { Sider, Header, Content } = Layout;
 
@@ -69,6 +70,7 @@ export function AppShell({ title, children }: { title: string; children: ReactNo
   const menu = (
     <>
       <div className="app-sider-brand">
+        <img src={imcLogo.url} alt="Logo Industrial Measuring Center" className="app-sider-logo" />
         <div className="app-sider-hello">Xin chào</div>
         <div className="app-sider-user">PĐL Lực</div>
       </div>
