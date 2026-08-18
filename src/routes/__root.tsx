@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
@@ -130,16 +130,16 @@ function RootComponent() {
         locale={viVN}
         theme={{
           token: {
-            colorPrimary: "#0aa06f",
-            colorLink: "#1a73c8",
+            colorPrimary: "#159fe0",
+            colorLink: "#0d7ab5",
             borderRadius: 3,
             fontSize: 13,
             fontFamily: '"Segoe UI", Roboto, Arial, Helvetica, sans-serif',
           },
           components: {
-            Layout: { siderBg: "#22313f", headerBg: "#f6f8f9", headerHeight: 44 },
-            Menu: { darkItemBg: "#22313f", darkItemSelectedBg: "#1a2733", darkSubMenuItemBg: "#1c2936" },
-            Table: { headerBg: "#0aa06f", headerColor: "#ffffff", cellPaddingBlockSM: 6 },
+            Layout: { siderBg: "#10314a", headerBg: "#f4f9fc", headerHeight: 44 },
+            Menu: { darkItemBg: "#10314a", darkItemSelectedBg: "#0a2438", darkSubMenuItemBg: "#0b2740" },
+            Table: { headerBg: "#159fe0", headerColor: "#ffffff", cellPaddingBlockSM: 6 },
             Button: { primaryShadow: "none" },
           },
         }}

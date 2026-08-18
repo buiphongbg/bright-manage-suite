@@ -145,11 +145,11 @@
 
 /* ============ Management system skin (Vietnamese lab management UI) ============ */
 :root {
-  --ms-green: #0aa06f;
-  --ms-green-dark: #089462;
-  --ms-sider: #22313f;
-  --ms-sider-active: #1a2733;
-  --ms-link: #1a73c8;
+  --ms-green: #159fe0;
+  --ms-green-dark: #0d84bd;
+  --ms-sider: #10314a;
+  --ms-sider-active: #0a2438;
+  --ms-link: #0d7ab5;
   --ms-red: #8b1d1d;
   --ms-blue: #2b7bb9;
   --ms-border: #d6dde3;
@@ -167,7 +167,7 @@ body {
   padding: 14px 12px;
   text-align: center;
   color: #cfd8e0;
-  background: #1c2936;
+  background: #0b2740;
 }
 .app-sider-hello {
   font-size: 13px;
@@ -297,7 +297,7 @@ body {
   color: #fff !important;
   text-align: center;
   font-weight: 600;
-  border-inline-end-color: #d9efe6 !important;
+  border-inline-end-color: #bfe3f7 !important;
 }
 .dt-table .ant-table-thead > tr > th::before {
   display: none !important;
@@ -307,7 +307,7 @@ body {
   vertical-align: top;
 }
 .dt-table .ant-table-tbody > tr:hover > td {
-  background: #f2f8f5 !important;
+  background: #eef7fc !important;
 }
 .dt-table .row-highlight > td {
   background: #eef7c8 !important;
@@ -474,7 +474,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: linear-gradient(150deg, #22313f 0%, #17323a 55%, #0d4c3d 100%);
+  background: linear-gradient(150deg, #0b2740 0%, #10537c 55%, #159fe0 100%);
 }
 .auth-card {
   width: 100%;
@@ -504,7 +504,7 @@ body {
 }
 .auth-brand-title {
   font-weight: 700;
-  color: #22313f;
+  color: #10314a;
 }
 .auth-brand-sub {
   font-size: 12px;
@@ -514,7 +514,7 @@ body {
   margin: 18px 0 4px;
   font-size: 20px;
   font-weight: 700;
-  color: #22313f;
+  color: #10314a;
 }
 .auth-subtitle {
   margin: 0 0 16px;
