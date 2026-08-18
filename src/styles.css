@@ -529,3 +529,129 @@ body {
 .auth-link {
   color: var(--ms-link);
 }
+
+/* ============ Mobile / responsive ============ */
+.app-drawer .ant-drawer-body {
+  background: var(--ms-sider);
+}
+.cal-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 13px;
+  }
+  .app-content {
+    padding: 10px 10px 24px;
+  }
+  .app-page-title {
+    padding: 8px 10px;
+    font-weight: 600;
+  }
+  .app-header {
+    padding: 0 8px !important;
+  }
+  .app-logout {
+    padding: 0 6px !important;
+  }
+
+  /* Filters stack full width and are easier to tap */
+  .filter-bar {
+    gap: 10px;
+  }
+  .filter-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+  .filter-field {
+    min-width: 0;
+    width: 100%;
+  }
+  .filter-field .ant-select,
+  .filter-field .ant-picker,
+  .filter-field .ant-input,
+  .filter-field .ant-input-affix-wrapper,
+  .filter-field .ant-input-number,
+  .filter-field .ant-select-single {
+    width: 100% !important;
+  }
+  .filter-daterange {
+    flex-wrap: wrap;
+  }
+  .filter-bar > .ant-btn {
+    width: 100%;
+    height: 38px;
+  }
+
+  /* Toolbars wrap, second export button hidden to save space */
+  .dt-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .dt-toolbar-left,
+  .dt-toolbar-right {
+    flex-wrap: wrap;
+  }
+  .dt-export-bottom {
+    display: none;
+  }
+  .dt-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .dt-table .ant-table {
+    font-size: 12px;
+  }
+  .dt-table .ant-table-tbody > tr > td,
+  .dt-table .ant-table-thead > tr > th {
+    padding: 6px !important;
+    white-space: nowrap;
+  }
+  .cell-prewrap {
+    white-space: pre-line;
+    min-width: 160px;
+  }
+
+  /* Detail pages */
+  .info-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .info-row {
+    flex-wrap: wrap;
+  }
+  .detail-actions .ant-btn,
+  .detail-actions {
+    flex-wrap: wrap;
+  }
+  .detail-tabs .ant-tabs-tab {
+    padding: 8px 10px !important;
+  }
+
+  /* Calendar: horizontal scroll keeps week structure readable */
+  .cal-grid {
+    min-width: 720px;
+  }
+  .cal-cell {
+    min-height: 96px;
+  }
+  .cal-toolbar {
+    gap: 8px;
+  }
+  .cal-toolbar .ant-select {
+    width: 100% !important;
+  }
+
+  /* Auth */
+  .auth-wrap {
+    padding: 16px;
+  }
+  .auth-card {
+    padding: 20px 18px 24px;
+  }
+}
