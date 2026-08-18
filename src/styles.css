@@ -197,7 +197,7 @@ body {
   border-left: 3px solid var(--ms-green);
 }
 .app-header {
-  background: #f6f8f9 !important;
+  background: #f4f9fc !important;
   border-bottom: 1px solid var(--ms-border);
   height: 44px !important;
   line-height: 44px !important;
@@ -492,15 +492,18 @@ body {
   border-bottom: 1px solid var(--ms-border);
 }
 .auth-logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  background: var(--ms-green);
-  color: #fff;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+}
+.app-sider-logo {
+  width: 92px;
+  height: auto;
+  margin: 0 auto 8px;
+  display: block;
+  background: #fff;
+  border-radius: 3px;
+  padding: 4px 6px;
 }
 .auth-brand-title {
   font-weight: 700;
