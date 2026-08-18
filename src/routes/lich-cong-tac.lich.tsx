@@ -57,6 +57,7 @@ function CalendarPage() {
         />
       </div>
 
+      <div className="cal-scroll">
       <div className="cal-grid">
         {WEEKDAYS.map((d) => (
           <div key={d} className={d === "T7" ? "cal-head cal-head-sat" : d === "CN" ? "cal-head cal-head-sun" : "cal-head"}>
