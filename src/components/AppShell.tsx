@@ -89,7 +89,7 @@ export function AppShell({ title, children }: { title: string; children: ReactNo
       {isMobile ? (
         <Drawer
           placement="left"
-          width={260}
+          size="default"
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
           closable={false}
