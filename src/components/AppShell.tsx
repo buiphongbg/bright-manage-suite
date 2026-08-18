@@ -1,4 +1,4 @@
-import { Layout, Menu, Button } from "antd";
+import { Layout, Menu, Button, Drawer } from "antd";
 import {
   AppstoreOutlined,
   SwapOutlined,
@@ -14,6 +14,7 @@ import {
 } from "@ant-design/icons";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const { Sider, Header, Content } = Layout;
 
@@ -54,7 +55,9 @@ const items = [
 
 export function AppShell({ title, children }: { title: string; children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   const selected = pathname.startsWith("/bao-gia")
@@ -63,28 +66,49 @@ export function AppShell({ title, children }: { title: string; children: ReactNo
       ? "/phieu-tntm"
       : pathname;
 
+  const menu = (
+    <>
+      <div className="app-sider-brand">
+        <div className="app-sider-hello">Xin chào</div>
+        <div className="app-sider-user">PĐL Lực</div>
+      </div>
+      <Menu
+        theme="dark"
+        mode="inline"
+        selectedKeys={[selected]}
+        defaultOpenKeys={pathname.startsWith("/lich-cong-tac") ? ["lich-cong-tac"] : []}
+        items={items}
+        className="app-menu"
+        onClick={() => setDrawerOpen(false)}
+      />
+    </>
+  );
+
   return (
     <Layout className="app-layout" style={{ minHeight: "100vh" }}>
-      <Sider width={224} collapsedWidth={0} trigger={null} collapsible collapsed={collapsed} className="app-sider">
-        <div className="app-sider-brand">
-          <div className="app-sider-hello">Xin chào</div>
-          <div className="app-sider-user">PĐL Lực</div>
-        </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          selectedKeys={[selected]}
-          defaultOpenKeys={pathname.startsWith("/lich-cong-tac") ? ["lich-cong-tac"] : []}
-          items={items}
-          className="app-menu"
-        />
-      </Sider>
+      {isMobile ? (
+        <Drawer
+          placement="left"
+          width={260}
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          closable={false}
+          styles={{ body: { padding: 0, background: "var(--ms-sider)" } }}
+          className="app-drawer"
+        >
+          {menu}
+        </Drawer>
+      ) : (
+        <Sider width={224} collapsedWidth={0} trigger={null} collapsible collapsed={collapsed} className="app-sider">
+          {menu}
+        </Sider>
+      )}
       <Layout>
         <Header className="app-header">
           <Button
             type="primary"
             icon={<MenuOutlined />}
-            onClick={() => setCollapsed((c) => !c)}
+            onClick={() => (isMobile ? setDrawerOpen(true) : setCollapsed((c) => !c))}
             aria-label="Ẩn/hiện menu"
           />
           <Button
