@@ -90,12 +90,13 @@ export function DataTable<T extends object>({
         columns={visibleColumns}
         dataSource={data}
         {...(rowClassName ? { rowClassName } : {})}
-        {...(scrollX ? { scroll: { x: scrollX } } : {})}
+        scroll={{ x: scrollX ?? "max-content" }}
         pagination={{
           current: page,
           pageSize: size,
           total: data.length,
           showSizeChanger: false,
+          size: "small",
           onChange: (p, s) => {
             setPage(p);
             setSize(s);
@@ -109,11 +110,12 @@ export function DataTable<T extends object>({
         </span>
         {footerRight}
       </div>
-      <div className="dt-toolbar-left" style={{ marginTop: 8 }}>
+      <div className="dt-toolbar-left dt-export-bottom" style={{ marginTop: 8 }}>
         <Button type="primary" icon={<DownloadOutlined />}>
           {exportLabel}
         </Button>
       </div>
+
     </div>
   );
 }
