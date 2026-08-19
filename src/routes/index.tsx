@@ -8,6 +8,7 @@ import { AppShell } from "@/components/AppShell";
 import { DataTable } from "@/components/DataTable";
 import { FilterBar, FilterField } from "@/components/FilterBar";
 import { quotes, type Quote } from "@/data/mock";
+import { StatusBadge } from "@/components/StatusBadge";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,8 +66,9 @@ function ServicePage() {
     {
       title: "Trạng thái",
       dataIndex: "trangThai",
-      width: 120,
-      render: (v: string) => <span className={v === "Phát hành" ? "cell-link" : ""}>{v}</span>,
+      width: 130,
+      align: "center",
+      render: (v: string) => <StatusBadge status={v} size="small" />,
     },
     { title: "Hóa đơn", dataIndex: "hoaDon", width: 110 },
     {
@@ -88,7 +90,7 @@ function ServicePage() {
               Chi tiết
             </Button>
           </Link>
-          {r.trangThai === "Mới Tạo" && (
+          {r.trangThai === "Mới tạo" && (
             <Button size="small" type="primary">
               Tạo xong
             </Button>
