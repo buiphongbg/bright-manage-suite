@@ -6,23 +6,23 @@ export type Quote = {
   ngayTao: string;
   khachHang: string;
   nguoiLap: string;
-  trangThai: "Mới Tạo" | "Phát hành";
+  trangThai: "Mới tạo" | "Chờ duyệt" | "Đã duyệt" | "Phát hành" | "Đã hủy" | "Hết hiệu lực";
   hoaDon: string;
   tongTien: number;
 };
 
 export const quotes: Quote[] = [
-  { id: "4607.26", stt: 1, soBG: "4607.26", ngayTao: "10-08-2026", khachHang: "Nhà máy sản xuất bao bì Jumbo Tú Phương", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 15330000 },
-  { id: "4606.26", stt: 2, soBG: "4606.26", ngayTao: "10-08-2026", khachHang: "Viện khoa học vật liệu", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 25620000 },
-  { id: "4604.26", stt: 3, soBG: "4604.26", ngayTao: "10-08-2026", khachHang: "Viện khoa học vật liệu", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 12075000 },
-  { id: "4603.26", stt: 4, soBG: "4603.26", ngayTao: "10-08-2026", khachHang: "CÔNG TY TRÁCH NHIỆM HỮU HẠN KPF VIỆT NAM", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 12075000 },
-  { id: "4601.26", stt: 5, soBG: "4601.26", ngayTao: "10-08-2026", khachHang: "Phòng thí nghiệm trọng điểm đường bộ I - Viện khoa học và công nghệ giao thông vận tải", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 12600000 },
-  { id: "4593.26", stt: 6, soBG: "4593.26", phieuTNTM: "4521.26", ngayTao: "07-08-2026", khachHang: "CÔNG TY TNHH KIỂM ĐỊNH AN TOÀN IDS VIỆT NAM", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 3150000 },
-  { id: "4590.26", stt: 7, soBG: "4590.26", ngayTao: "07-08-2026", khachHang: "Công ty TNHH LMS Technologies Việt Nam", nguoiLap: "PĐL Lực", trangThai: "Phát hành", hoaDon: "Chưa có", tongTien: 8400000 },
-  { id: "4541.26", stt: 8, soBG: "4541.26", ngayTao: "05-08-2026", khachHang: "CÔNG TY TNHH SỬA CHỮA TÀU-DỊCH VỤ HÀNG HẢI VÀ THƯƠNG MẠI SAO BIỂN", nguoiLap: "PĐL Lực", trangThai: "Phát hành", hoaDon: "Chưa có", tongTien: 4200000 },
-  { id: "4540.26", stt: 9, soBG: "4540.26", ngayTao: "05-08-2026", khachHang: "Công ty TNHH CTR Vina", nguoiLap: "PĐL Lực", trangThai: "Phát hành", hoaDon: "Chưa có", tongTien: 9450000 },
-  { id: "4503.26", stt: 10, soBG: "4503.26", ngayTao: "03-08-2026", khachHang: "CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ KỸ THUẬT M.D", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 126000000 },
-  { id: "4622.26", stt: 11, soBG: "4622.26", ngayTao: "10-08-2026", khachHang: "CÔNG TY TNHH MỘT THÀNH VIÊN CƠ KHÍ HÀ NỘI", nguoiLap: "PĐL Lực", trangThai: "Mới Tạo", hoaDon: "Chưa có", tongTien: 3150000 },
+  { id: "4607.26", stt: 1, soBG: "4607.26", ngayTao: "10-08-2026", khachHang: "Nhà máy sản xuất bao bì Jumbo Tú Phương", nguoiLap: "PĐL Lực", trangThai: "Mới tạo", hoaDon: "Chưa có", tongTien: 15330000 },
+  { id: "4606.26", stt: 2, soBG: "4606.26", ngayTao: "10-08-2026", khachHang: "Viện khoa học vật liệu", nguoiLap: "PĐL Lực", trangThai: "Chờ duyệt", hoaDon: "Chưa có", tongTien: 25620000 },
+  { id: "4604.26", stt: 3, soBG: "4604.26", ngayTao: "10-08-2026", khachHang: "Viện khoa học vật liệu", nguoiLap: "PĐL Lực", trangThai: "Đã duyệt", hoaDon: "Chưa có", tongTien: 12075000 },
+  { id: "4603.26", stt: 4, soBG: "4603.26", ngayTao: "10-08-2026", khachHang: "CÔNG TY TRÁCH NHIỆM HỮU HẠN KPF VIỆT NAM", nguoiLap: "PĐL Lực", trangThai: "Mới tạo", hoaDon: "Chưa có", tongTien: 12075000 },
+  { id: "4601.26", stt: 5, soBG: "4601.26", ngayTao: "10-08-2026", khachHang: "Phòng thí nghiệm trọng điểm đường bộ I - Viện khoa học và công nghệ giao thông vận tải", nguoiLap: "PĐL Lực", trangThai: "Chờ duyệt", hoaDon: "Chưa có", tongTien: 12600000 },
+  { id: "4593.26", stt: 6, soBG: "4593.26", phieuTNTM: "4521.26", ngayTao: "07-08-2026", khachHang: "CÔNG TY TNHH KIỂM ĐỊNH AN TOÀN IDS VIỆT NAM", nguoiLap: "PĐL Lực", trangThai: "Phát hành", hoaDon: "Chưa có", tongTien: 3150000 },
+  { id: "4590.26", stt: 7, soBG: "4590.26", ngayTao: "07-08-2026", khachHang: "Công ty TNHH LMS Technologies Việt Nam", nguoiLap: "PĐL Lực", trangThai: "Phát hành", hoaDon: "Đã xuất", tongTien: 8400000 },
+  { id: "4541.26", stt: 8, soBG: "4541.26", ngayTao: "05-08-2026", khachHang: "CÔNG TY TNHH SỬA CHỮA TÀU-DỊCH VỤ HÀNG HẢI VÀ THƯƠNG MẠI SAO BIỂN", nguoiLap: "PĐL Lực", trangThai: "Đã hủy", hoaDon: "Chưa có", tongTien: 4200000 },
+  { id: "4540.26", stt: 9, soBG: "4540.26", ngayTao: "05-08-2026", khachHang: "Công ty TNHH CTR Vina", nguoiLap: "PĐL Lực", trangThai: "Phát hành", hoaDon: "Đã xuất", tongTien: 9450000 },
+  { id: "4503.26", stt: 10, soBG: "4503.26", ngayTao: "03-08-2026", khachHang: "CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ KỸ THUẬT M.D", nguoiLap: "PĐL Lực", trangThai: "Hết hiệu lực", hoaDon: "Chưa có", tongTien: 126000000 },
+  { id: "4622.26", stt: 11, soBG: "4622.26", ngayTao: "10-08-2026", khachHang: "CÔNG TY TNHH MỘT THÀNH VIÊN CƠ KHÍ HÀ NỘI", nguoiLap: "PĐL Lực", trangThai: "Đã duyệt", hoaDon: "Chưa có", tongTien: 3150000 },
 ];
 
 export type QuoteLine = {
@@ -70,7 +70,7 @@ export const quoteDetails: Record<string, QuoteDetail> = {
     nguoiLienHe: "",
     nguoiLap: "PĐL Lực",
     ghiChu: "",
-    trangThai: "Mới Tạo",
+    trangThai: "Mới tạo",
     hopDongNguyenTac: "Không có",
     hanDen: "10-06-2027",
     diaChi: "Số 76, đường Nguyễn Trãi, Phường Thanh Xuân, TP Hà Nội, Việt Nam - Hà Nội",
@@ -95,7 +95,7 @@ export function getQuoteDetail(id: string): QuoteDetail {
     ngayTao: q.ngayTao,
     khachHang: q.khachHang,
     nguoiLap: q.nguoiLap,
-    trangThai: q.trangThai === "Phát hành" ? "Phát hành" : "Mới Tạo",
+    trangThai: q.trangThai,
     lines: [{ ...base.lines[0]!, donGia, thanhTien: q.tongTien }],
   };
 }
