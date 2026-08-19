@@ -5,6 +5,7 @@ import type { ColumnsType } from "antd/es/table";
 import { AppShell } from "@/components/AppShell";
 import { InfoRow } from "@/components/FilterBar";
 import { getQuoteDetail, formatVnd, type QuoteLine } from "@/data/mock";
+import { StatusBadge } from "@/components/StatusBadge";
 
 export const Route = createFileRoute("/bao-gia/$id")({
   head: ({ params }) => ({
@@ -80,7 +81,7 @@ function QuoteDetailPage() {
                     <InfoRow label="Người liên hệ" value={d.nguoiLienHe} />
                     <InfoRow label="Người lập" value={d.nguoiLap} strong />
                     <InfoRow label="Ghi chú" value={d.ghiChu} />
-                    <InfoRow label="Trạng thái" value={<b>{d.trangThai}</b>} />
+                    <InfoRow label="Trạng thái" value={<StatusBadge status={d.trangThai} />} />
                   </div>
                   <div>
                     <div style={{ marginBottom: 8 }}>
