@@ -68,7 +68,7 @@ export function StatusBadge({ status, label, size = "default" }: StatusBadgeProp
   };
   return (
     <Tag
-      color={cfg.color}
+      color="default"
       bordered={false}
       className={`sb ${cfg.cls} ${size === "small" ? "sb-sm" : ""}`}
     >
