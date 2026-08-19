@@ -658,3 +658,62 @@ body {
     padding: 20px 18px 24px;
   }
 }
+
+/* ===== Status badges ===== */
+.sb.ant-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1px 12px;
+  height: 24px;
+  line-height: 22px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  white-space: nowrap;
+  letter-spacing: 0.1px;
+}
+.sb-sm.ant-tag {
+  height: 20px;
+  line-height: 18px;
+  padding: 0 8px;
+  font-size: 11.5px;
+  border-radius: 10px;
+}
+/* Mới tạo — xám */
+.sb-moi-tao.ant-tag {
+  color: #51606e;
+  background: #e6ebef;
+}
+/* Chờ duyệt — cam */
+.sb-cho-duyet.ant-tag {
+  color: #9a5400;
+  background: #ffe7ba;
+}
+/* Đã duyệt — xanh dương */
+.sb-da-duyet.ant-tag {
+  color: #0a4a86;
+  background: #cfe6ff;
+}
+/* Phát hành / Còn hiệu lực / Đã thanh toán — xanh lá */
+.sb-phat-hanh.ant-tag,
+.sb-con-hieu-luc.ant-tag {
+  color: #1d6b3b;
+  background: #ccefdb;
+}
+/* Đã hủy — đỏ */
+.sb-da-huy.ant-tag {
+  color: #a3232b;
+  background: #ffd5d8;
+}
+/* Hết hiệu lực — xám đậm */
+.sb-het-hieu-luc.ant-tag {
+  color: #4a4f55;
+  background: #d7dade;
+}
+@media (max-width: 767px) {
+  .sb.ant-tag { font-size: 12px; }
+  .sb-sm.ant-tag { font-size: 11px; padding: 0 7px; }
+}
