@@ -294,9 +294,9 @@ body {
 }
 .dt-table .ant-table-thead > tr > th {
   background: var(--ms-green) !important;
-  color: #fff !important;
+  color: #10314a !important;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   border-inline-end-color: #bfe3f7 !important;
 }
 .dt-table .ant-table-thead > tr > th::before {
